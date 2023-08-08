@@ -35,6 +35,11 @@ function App() {
              
           </form>
         </div>
+        <div >
+          <ul>
+            <li> dados mandados pelo Organizador</li>
+          </ul>
+        </div>
       </section>  
      
       
