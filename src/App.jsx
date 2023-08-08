@@ -1,50 +1,65 @@
 import React from "react";
 import { useState } from "react";
 
-function App() {
-
-  const [tarefas, setTarefas] = useState('');
-
-  function handleEnviaTarefa(e){
-    e.preventDefault();
-      console.log(tarefas)
-  }
+export default function App() {
+  const  [tarefa, setTarefas] = useState("");
+  const [organizador, setOrganizador] = useState(false);
   
+  const handleOrganizadorChange = () =>{
+    setOrganizador(true)
+  }
+
+  const handleExecutadorChange = () =>{
+    setOrganizador(false)
+  }
+
+  const hadleEnviaTarefa = (e) =>{
+    e.preventDefault();
+     console.log('Tarefa enviada', tarefa)
+  }
 
 
   return (
-    <>
-      <section>
+    <section onChange={(e) => {
+         if(e.target.value === 'Organizador'){
+          handleOrganizadorChange();
+         }else{
+          handleExecutadorChange()
+         }
+    }}>
+      <div>
+        <h2>To List</h2>
+        <p>Selecione quem é você!</p>
+      </div>
+
+      <div>
+        <select >
+       
+   
+          <option>Organizador</option>
+          <option>Executador</option>
+        </select>
+      </div>
+          {organizador ? (
         <div>
-          <h2>To List</h2>
-          <p>Selecione quem é você!</p>
-        </div>
-        <div>
-          <select>
-            <option>Organizador</option>
-            <option>Executador</option>
-          </select>
-        </div>
-        <div>
-          <form onSubmit={handleEnviaTarefa}>
+          <form onSubmit={hadleEnviaTarefa}>
             <label>Nome da Tarefa</label>
-            <input  type="text"  name="tarefa" onChange={(e) =>{
-               setTarefas({tarefas:e.target.value}) 
-            }}/>
-            <input type="submit"/>
-             
+            <input type="text" name="tarefa"
+              onChange={(e) => {setTarefas(e.target.value = tarefa)}}
+              
+            />
+            <button type="submit">Enviar Tarefa</button>
           </form>
         </div>
-        <div >
+          ) : (
+        <div>
           <ul>
-            <li> dados mandados pelo Organizador</li>
+            <li>dados mandados pelo Organizador</li>
           </ul>
         </div>
-      </section>  
-     
-      
-    </>
-  )
+          )}
+    </section>
+  );
 }
 
-export default App
+
