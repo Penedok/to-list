@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 export default function App() {
-  const  [tarefa, setTarefas] = useState("");
+  const  [tarefa, setTarefas] = useState();
   const [organizador, setOrganizador] = useState(false);
   
   const handleOrganizadorChange = () =>{
@@ -20,22 +20,20 @@ export default function App() {
 
 
   return (
-    <section onChange={(e) => {
-         if(e.target.value === 'Organizador'){
-          handleOrganizadorChange();
-         }else{
-          handleExecutadorChange()
-         }
-    }}>
+    <section>
       <div>
         <h2>To List</h2>
         <p>Selecione quem é você!</p>
       </div>
 
       <div>
-        <select >
-       
-   
+        <select onChange={(e) => {
+         if(e.target.value === 'Organizador'){
+          handleOrganizadorChange();
+         }else{
+          handleExecutadorChange()
+         }
+    }}> 
           <option>Organizador</option>
           <option>Executador</option>
         </select>
