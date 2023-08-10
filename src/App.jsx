@@ -2,22 +2,26 @@ import React from "react";
 import { useState } from "react";
 
 export default function App() {
-  const  [tarefa, setTarefas] = useState();
+
+  const [tarefa, setTarefas] = useState();
   const [organizador, setOrganizador] = useState(false);
+  const [mensagem, setMensagem]= useState();
+
+  const handleEnviaTarefa = (e) =>{
+        e.preventDefault() 
+        console.log(tarefa)   
+  }
+  const handleOrganizador =() =>{
+      setOrganizador(true);
+      
+  }
+  const handleExecutador =()=>{
+    setOrganizador(false);
+  }
+ 
+  const h1 = document.createElement('h1');
+  h1.textContent = 'Meu site incrivel'
   
-  const handleOrganizadorChange = () =>{
-    setOrganizador(true)
-  }
-
-  const handleExecutadorChange = () =>{
-    setOrganizador(false)
-  }
-
-  const hadleEnviaTarefa = (e) =>{
-    e.preventDefault();
-     console.log('Tarefa enviada', tarefa)
-  }
-
 
   return (
     <section>
@@ -28,31 +32,46 @@ export default function App() {
 
       <div>
         <select onChange={(e) => {
-         if(e.target.value === 'Organizador'){
-          handleOrganizadorChange();
-         }else{
-          handleExecutadorChange()
-         }
-    }}> 
+           if(e.target.value === 'Organizador') {
+            handleOrganizador()
+          }
+          else{
+            handleExecutador()
+          }
+        }} >
+           <option>Selecione</option>
           <option>Organizador</option>
           <option>Executador</option>
         </select>
       </div>
-          {organizador ? (
+        {organizador ? (
         <div>
-          <form onSubmit={hadleEnviaTarefa}>
-            <label>Nome da Tarefa</label>
-            <input type="text" name="tarefa"
-              onChange={(e) => {setTarefas(e.target.value = tarefa)}}
-              
-            />
-            <button type="submit">Enviar Tarefa</button>
+          <form onSubmit={handleEnviaTarefa}>
+            <div>
+              <label>Nome da Tarefa</label>
+              <input type="text" name="tarefa" onChange={(e) => {setTarefas(e.target.value)}} 
+              />
+            </div>  
+            <div>
+              <label>Casa</label>
+              <input type="checkbox" name='Casa' />
+            </div> 
+            <div>
+              <label>Escolar</label>
+              <input type="checkbox" name='Escolar' />
+            </div>  
+            <button type="submit" name='tarefa'>Enviar Tarefa</button>
           </form>
         </div>
-          ) : (
+          ): (
         <div>
           <ul>
-            <li>dados mandados pelo Organizador</li>
+            <li>
+              <span onChange={(e)=> {setMensagem(e.target.value)}}></span>
+              <span></span>
+              <input type="checkbox"/>
+
+            </li>
           </ul>
         </div>
           )}
