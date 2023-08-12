@@ -46,15 +46,21 @@ export default function Inputs (){
                     <Dados>
                         <Formulario onSubmit={handleEnviaTarefa}>
                             <div>
-                            <label>Nome</label>
-                            <input type="text" name="Tarefa" onChange={(e) =>{setTarefas(e.target.value)}}/>
+                                <label>Nome</label>
+                                <input type="text" name="Tarefa" onChange={(e) =>{setTarefas(e.target.value)}}/>
+                            <div>
+                                <label>Casa</label>
+                                <input type='checkbox' name='Casa'/>
+                                <input type='checkbox' name='Escola'/>
+                                <label>Escola</label>
+                            </div>
                             </div>
                             <div>
-                            <button type="submit">Enviar</button>
+                                <button type="submit">Enviar</button>
                             </div>
                         </Formulario>
                     </Dados>
-                 ):null }{executador && (
+                 ):null } {executador && (
                     <div>
                         <p>ola</p>
                    </div>
