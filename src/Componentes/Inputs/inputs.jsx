@@ -28,29 +28,33 @@ export default function Inputs (){
                    <Select onChange={(e)=>{
                       if(e.target.value === "Organizador"){
                         handleOrganizador();
+                        setExecutador(false)
                       }else if(e.target.value === "Executador"){
                         handleExecutador();
+                        setExecutador(true)
+                      }else{
+                        setOrganizador(false);
+                        setExecutador(false)
                       }
-                      
                    }}>
-                    
+                     <option>Selecione..</option>
                      <option>Organizador</option>
                      <option>Executador</option>
                    </Select>
                 </Selecao>
                   {organizador ? (
-                <Dados>
-                    <Formulario onSubmit={handleEnviaTarefa}>
-                        <div>
-                           <label>Nome</label>
-                           <input type="text" name="Tarefa" onChange={(e) =>{setTarefas(e.target.value)}}/>
-                         </div>
-                         <div>
-                           <button type="submit">Enviar</button>
-                         </div>
-                    </Formulario>
-                </Dados>
-                 ):(
+                    <Dados>
+                        <Formulario onSubmit={handleEnviaTarefa}>
+                            <div>
+                            <label>Nome</label>
+                            <input type="text" name="Tarefa" onChange={(e) =>{setTarefas(e.target.value)}}/>
+                            </div>
+                            <div>
+                            <button type="submit">Enviar</button>
+                            </div>
+                        </Formulario>
+                    </Dados>
+                 ):null }{executador && (
                     <div>
                         <p>ola</p>
                    </div>
