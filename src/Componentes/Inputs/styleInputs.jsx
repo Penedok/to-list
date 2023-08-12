@@ -35,3 +35,10 @@ export const Select = styled.select`
   border-radius:2em;
   padding: 0 1em;  
 `
+export const Formulario = styled.form`
+    display:flex;
+    justify-content: center;
+    aling-items:center;
+    margin: 0 0 2em 0;
+
+`
