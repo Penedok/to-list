@@ -1,5 +1,5 @@
 import React from 'react';
-import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario} from './styleInputs'
+import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario, TituloLista, Coluna, Lista,B} from './styleInputs'
 import { useState } from 'react';
 
 export default function Inputs (){
@@ -55,8 +55,8 @@ export default function Inputs (){
                 </Selecao>
                   {organizador ? (
                     <Dados>
-                        <button onClick={() => setSelecionaTarefa('Casa')}>Casa</button>
-                        <button onClick={() =>  setSelecionaTarefa('Escola')}>Escola</button>
+                        <Btn onClick={() => setSelecionaTarefa('Casa')}>Casa</Btn>
+                        <Btn onClick={() =>  setSelecionaTarefa('Escola')}>Escola</Btn>
                           <Formulario onSubmit={handleEnviaTarefa}>
                             <div>
                                 <label>Nome</label>
@@ -71,14 +71,14 @@ export default function Inputs (){
                     </Dados>
                  ):null } {executador && (
                     <div>
-                        <h2>Tarefas:</h2>
-                        <ul>
+                        <TituloLista>Tarefas:</TituloLista>
+                        <Coluna>
                           {tarefa.map((tarefa, index) => (
-                            <li key={index}>
+                            <Lista key={index}>
                               <strong>{tarefa.topic}:</strong> {tarefa.tarefa}
-                            </li>
+                            </Lista>
                           ))}
-                        </ul>
+                        </Coluna>
                    </div>
                  )}
             </Cartao>  

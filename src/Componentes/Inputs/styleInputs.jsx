@@ -40,5 +40,37 @@ export const Formulario = styled.form`
     justify-content: center;
     aling-items:center;
     margin: 0 0 2em 0;
+`
+export const Coluna = styled.ul`
+    list-style-type: none;
+    padding: 0;
+`
+export const Lista = styled.li`
+    margin-top: 5px;
 
+`
+export const Btn = styled.button`
+border-radius: 8px;
+border: 1px solid transparent;
+padding: 0.6em 1.2em;
+font-size: 1em;
+font-weight: 500;
+font-family: inherit;
+background-color: #1a1a1a;
+cursor: pointer;
+transition: border-color 0.25s;
+
+&:hover{
+    border-color: #646cff;
+}
+&:focus,focus-visible{
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+
+
+`
+export const TituloLista = styled.h2`
+    color:#0000;
 `
