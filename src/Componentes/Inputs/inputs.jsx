@@ -4,13 +4,24 @@ import { useState } from 'react';
 
 export default function Inputs (){
 
-  const [tarefa, setTarefas] = useState();
+  const [tarefa, setTarefas] = useState([]);
   const [organizador, setOrganizador] = useState(false);
   const [executador, setExecutador] = useState(false);
+  const [selecionaTarefa, setSelecionaTarefa] = useState('')
 
   const handleEnviaTarefa = (e)=>{
-        e.preventDefault()
-        console.log("Tarefa enviada, " + tarefa)    
+        e.preventDefault();
+        if (e.target.tarefa.value.trim() === '') return ///remover espaço em branco 
+    
+        const novaTarefa ={
+           topic: selecionaTarefa,
+           tarefa: e.target.tarefa.value,
+        };
+
+        setTarefas([...tarefa, novaTarefa]);
+        e.target.tarefa.value ='';
+
+
   }
 
   const handleOrganizador =() =>{
@@ -44,15 +55,13 @@ export default function Inputs (){
                 </Selecao>
                   {organizador ? (
                     <Dados>
-                        <Formulario onSubmit={handleEnviaTarefa}>
+                        <button onClick={() => setSelecionaTarefa('Casa')}>Casa</button>
+                        <button onClick={() =>  setSelecionaTarefa('Escola')}>Escola</button>
+                          <Formulario onSubmit={handleEnviaTarefa}>
                             <div>
                                 <label>Nome</label>
-                                <input type="text" name="Tarefa" onChange={(e) =>{setTarefas(e.target.value)}}/>
+                                <input type="text" name="tarefa" />
                             <div>
-                                <label>Casa</label>
-                                <input type='checkbox' name='Casa'/>
-                                <input type='checkbox' name='Escola'/>
-                                <label>Escola</label>
                             </div>
                             </div>
                             <div>
@@ -62,7 +71,14 @@ export default function Inputs (){
                     </Dados>
                  ):null } {executador && (
                     <div>
-                        <p>ola</p>
+                        <h2>Tarefas:</h2>
+                        <ul>
+                          {tarefa.map((tarefa, index) => (
+                            <li key={index}>
+                              <strong>{tarefa.topic}:</strong> {tarefa.tarefa}
+                            </li>
+                          ))}
+                        </ul>
                    </div>
                  )}
             </Cartao>  
