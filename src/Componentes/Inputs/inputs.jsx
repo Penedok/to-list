@@ -1,5 +1,6 @@
 import React from 'react';
-import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario, TituloLista, Coluna, Lista,B} from './styleInputs'
+import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario,
+   TituloLista, Coluna, Lista,Btn,CaixaBtn,CaixaInput, ExecutadorLabel} from './styleInputs'
 import { useState } from 'react';
 
 export default function Inputs (){
@@ -20,9 +21,14 @@ export default function Inputs (){
 
         setTarefas([...tarefa, novaTarefa]);
         e.target.tarefa.value ='';
-
-
   }
+
+  const apaga =() =>{
+    const deleta = document.querySelector('.opcoes')
+    deleta.parentNode.removeChild(deleta)
+
+
+}
 
   const handleOrganizador =() =>{
       setOrganizador(true);
@@ -55,27 +61,33 @@ export default function Inputs (){
                 </Selecao>
                   {organizador ? (
                     <Dados>
-                        <Btn onClick={() => setSelecionaTarefa('Casa')}>Casa</Btn>
-                        <Btn onClick={() =>  setSelecionaTarefa('Escola')}>Escola</Btn>
-                          <Formulario onSubmit={handleEnviaTarefa}>
-                            <div>
-                                <label>Nome</label>
-                                <input type="text" name="tarefa" />
-                            <div>
-                            </div>
-                            </div>
-                            <div>
-                                <button type="submit">Enviar</button>
-                            </div>
-                        </Formulario>
+                           
+                      <Formulario onSubmit={handleEnviaTarefa}>
+                        <CaixaBtn>
+                          <Btn onClick={() => setSelecionaTarefa('Casa')}>Casa</Btn>
+                          <Btn onClick={() =>  setSelecionaTarefa('Escola')}>Escola</Btn>
+                        </CaixaBtn>  
+                         <CaixaInput>
+                          
+                             <label>Nome</label>
+                             <input type="text" name="tarefa" />
+                             <button type="submit">Enviar</button>
+                        </CaixaInput>
+                       
+                          <div>
+                            
+                          </div>
+                      </Formulario>
                     </Dados>
                  ):null } {executador && (
                     <div>
                         <TituloLista>Tarefas:</TituloLista>
-                        <Coluna>
+                        <Coluna >
                           {tarefa.map((tarefa, index) => (
-                            <Lista key={index}>
+                            <Lista className='opcoes' key={index}>
+                              <input type='checkbox' placeholder='Feito' id='feito' className='input-checkbox'/>
                               <strong>{tarefa.topic}:</strong> {tarefa.tarefa}
+                              <ExecutadorLabel for="feito"> Feito   </ExecutadorLabel>
                             </Lista>
                           ))}
                         </Coluna>

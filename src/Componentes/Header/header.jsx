@@ -7,7 +7,7 @@ export default function Header ( ) {
                 <Logoimg src="/logo.svg" alt="logo"/>
             </div>
             <div>
-                <h1>To-List</h1>
+                <h1>Para Fazer...</h1>
             </div>
             
         </ContainerHeader>
