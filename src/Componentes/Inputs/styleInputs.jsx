@@ -63,6 +63,8 @@ export const Ht = styled.th`
 `
 export const Paragrafo =styled.p`
     font-size:22px;
+    text-transform: uppercase;
+
 
 `
 export const CaixaBtn = styled.div`
@@ -101,7 +103,7 @@ justify-content: center;
 aling-items:center;
 
 `
-export const ExecutadorLabel = styled.label`
+export const ExecutadorLabel = styled.th`
 border: 1px solid black;
 border-radius: 8px;
 background-color:#646cff;

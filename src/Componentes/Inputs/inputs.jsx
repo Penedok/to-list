@@ -90,15 +90,20 @@ export default function Inputs (){
                             <><thead>
                               <Tr>
                                 <Ht>
-                                  <Paragrafo>{tarefa.topic}</Paragrafo>
+                                  <Paragrafo><strong>{tarefa.topic}</strong></Paragrafo>
                                 </Ht>
                               </Tr>
-                            </thead><tbody>
-                                <Tr className='opcoes' key={index}>
-                                  <input type='checkbox' placeholder='Feito' id='feito' className='input-checkbox' />
+                            </thead>
 
+                            
+                            <tbody>
+                     
+                                <Tr className='opcoes' key={index}>
+                                  <td>
+                                    <input type='checkbox' placeholder='Feito' id={`feito-${index}`} className='input-checkbox' />
+                                  </td>
                                   <Ht>{tarefa.tarefa}</Ht>
-                                  <ExecutadorLabel for="feito"> Feito   </ExecutadorLabel>
+                                  <ExecutadorLabel id={`feito-${index}`}> Feito   </ExecutadorLabel>
                                 </Tr>
                               </tbody></>
                             
