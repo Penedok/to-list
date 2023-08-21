@@ -43,24 +43,20 @@ export const Formulario = styled.form`
     aling-items:center;
     margin: 0 0 2em 0;
 `
-export const Tabela = styled.table`
+export const Coluna = styled.ul`
     display:flex;
     flex-direction: column;
     justify-content: center;
     
     padding: 0;
 `
-export const Tr = styled.tr`
+export const Linhas = styled.li`
     display:flex;
-    justify-content:center;
-    margin:0 0 0.5em 0;
-    font-size:18px;
+   
+    justify-content: center;
 
 `
-export const Ht = styled.th`
-    display:flex;
-    justify-content:center;
-`
+
 export const Paragrafo =styled.p`
     font-size:22px;
     text-transform: uppercase;
@@ -93,9 +89,6 @@ transition: border-color 0.25s;
 }
 
 `
-export const TituloLista = styled.h2`
-    color:#0000;
-`
 export const CaixaInput = styled.div`
 display:flex;
 flex-direction:column;
@@ -103,7 +96,7 @@ justify-content: center;
 aling-items:center;
 
 `
-export const ExecutadorLabel = styled.th`
+export const ExecutadorLabel = styled.label`
 border: 1px solid black;
 border-radius: 8px;
 background-color:#646cff;

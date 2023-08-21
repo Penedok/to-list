@@ -1,6 +1,6 @@
 import React from 'react';
 import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario,
-   TituloLista,Tr,Ht,Tabela,Btn,CaixaBtn,CaixaInput, ExecutadorLabel,Paragrafo} from './styleInputs'
+   Coluna,Linhas,Btn,CaixaBtn,CaixaInput, ExecutadorLabel} from './styleInputs'
 import { useState } from 'react';
 
 export default function Inputs (){
@@ -17,18 +17,14 @@ export default function Inputs (){
         const novaTarefa ={
            topic: selecionaTarefa,
            tarefa: e.target.tarefa.value,
+         
         };
 
         setTarefas([...tarefa, novaTarefa]);
         e.target.tarefa.value ='';
   }
 
-  const apaga =() =>{
-    const deleta = document.querySelector('.opcoes')
-    deleta.parentNode.removeChild(deleta)
 
-
-}
 
   const handleOrganizador =() =>{
       setOrganizador(true);
@@ -36,6 +32,7 @@ export default function Inputs (){
   const handleExecutador =()=>{
      setOrganizador(false)
   }
+ 
 
     return(
         <ContainerInput>
@@ -61,55 +58,34 @@ export default function Inputs (){
                 </Selecao>
                   {organizador ? (
                     <Dados>
-                           
                       <Formulario onSubmit={handleEnviaTarefa}>
                         <CaixaBtn>
                           <Btn onClick={() => setSelecionaTarefa('Casa')}>Casa</Btn>
                           <Btn onClick={() =>  setSelecionaTarefa('Escola')}>Escola</Btn>
                         </CaixaBtn>  
                          <CaixaInput>
-                          
                              <label>Nome</label>
                              <input type="text" name="tarefa" />
                              <button type="submit">Enviar</button>
                         </CaixaInput>
-                       
-                          <div>
-                            
-                          </div>
                       </Formulario>
                     </Dados>
-                 ):null } {executador && (
-                    <div>
-                        <TituloLista>Tarefas:</TituloLista>
-
-                      
-                        <Tabela >
-
-                          {tarefa.map((tarefa, index) => (
-                            <><thead>
-                              <Tr>
-                                <Ht>
-                                  <Paragrafo><strong>{tarefa.topic}</strong></Paragrafo>
-                                </Ht>
-                              </Tr>
-                            </thead>
-
-                            
-                            <tbody>
-                     
-                                <Tr className='opcoes' key={index}>
-                                  <td>
-                                    <input type='checkbox' placeholder='Feito' id={`feito-${index}`} className='input-checkbox' />
-                                  </td>
-                                  <Ht>{tarefa.tarefa}</Ht>
-                                  <ExecutadorLabel id={`feito-${index}`}> Feito   </ExecutadorLabel>
-                                </Tr>
-                              </tbody></>
-                            
+                 ):null } {executador && (  
+                  <div>
+                      <Coluna>
+                      {tarefa.map((tarefa, index) => (
+                        <Linhas key={index}>
+                          <input type="checkbox" id='feito'/>
+                          <strong>{tarefa.topic}:</strong> {tarefa.tarefa}
+                          <ExecutadorLabel for='feito' placeholder='Feito'>
+                              Feito
+                          </ExecutadorLabel>
+                        </Linhas>
                           ))}
-                        </Tabela>
-                   </div>
+                   </Coluna>
+                   
+                  </div>     
+                
                  )}
             </Cartao>  
         </ContainerInput>
