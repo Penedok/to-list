@@ -1,6 +1,6 @@
 import React from 'react';
 import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario,
-   TituloLista, Coluna, Lista,Btn,CaixaBtn,CaixaInput, ExecutadorLabel} from './styleInputs'
+   TituloLista,Tr,Ht,Tabela,Btn,CaixaBtn,CaixaInput, ExecutadorLabel,Paragrafo} from './styleInputs'
 import { useState } from 'react';
 
 export default function Inputs (){
@@ -82,15 +82,28 @@ export default function Inputs (){
                  ):null } {executador && (
                     <div>
                         <TituloLista>Tarefas:</TituloLista>
-                        <Coluna >
+
+                      
+                        <Tabela >
+
                           {tarefa.map((tarefa, index) => (
-                            <Lista className='opcoes' key={index}>
-                              <input type='checkbox' placeholder='Feito' id='feito' className='input-checkbox'/>
-                              <strong>{tarefa.topic}:</strong> {tarefa.tarefa}
-                              <ExecutadorLabel for="feito"> Feito   </ExecutadorLabel>
-                            </Lista>
+                            <><thead>
+                              <Tr>
+                                <Ht>
+                                  <Paragrafo>{tarefa.topic}</Paragrafo>
+                                </Ht>
+                              </Tr>
+                            </thead><tbody>
+                                <Tr className='opcoes' key={index}>
+                                  <input type='checkbox' placeholder='Feito' id='feito' className='input-checkbox' />
+
+                                  <Ht>{tarefa.tarefa}</Ht>
+                                  <ExecutadorLabel for="feito"> Feito   </ExecutadorLabel>
+                                </Tr>
+                              </tbody></>
+                            
                           ))}
-                        </Coluna>
+                        </Tabela>
                    </div>
                  )}
             </Cartao>  

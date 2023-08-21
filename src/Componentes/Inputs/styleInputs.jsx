@@ -12,7 +12,7 @@ export const Cartao = styled.div`
     justify-content: center;
     flex-direction:column;
     aling-items:center;
-    background-color: #242424;
+    background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
     margin: 2.5em 6em ;
     border:1px solid transparent;
     border-radius:1.5em;
@@ -43,20 +43,32 @@ export const Formulario = styled.form`
     aling-items:center;
     margin: 0 0 2em 0;
 `
-export const Coluna = styled.ul`
-    list-style-type: none;
+export const Tabela = styled.table`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    
     padding: 0;
 `
-export const Lista = styled.li`
+export const Tr = styled.tr`
     display:flex;
     justify-content:center;
-    margin-top: 5px;
+    margin:0 0 0.5em 0;
+    font-size:18px;
+
+`
+export const Ht = styled.th`
+    display:flex;
+    justify-content:center;
+`
+export const Paragrafo =styled.p`
+    font-size:22px;
 
 `
 export const CaixaBtn = styled.div`
-display:flex;
-justify-content: center;
-aling-items:center;
+    display:flex;
+    justify-content: center;
+    aling-items:center;
 
 
 `
