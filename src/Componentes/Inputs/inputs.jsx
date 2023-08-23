@@ -75,9 +75,9 @@ export default function Inputs (){
                       <Coluna>
                       {tarefa.map((tarefa, index) => (
                         <Linhas key={index}>
-                          <input type="checkbox" id='feito'/>
+                          <input type="checkbox" id={`feito-${index}`}/>
                           <strong>{tarefa.topic}:</strong> {tarefa.tarefa}
-                          <ExecutadorLabel for='feito' placeholder='Feito'>
+                          <ExecutadorLabel for={`feito-${index}`} placeholder='Feito'>
                               Feito
                           </ExecutadorLabel>
                         </Linhas>
