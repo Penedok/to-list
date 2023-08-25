@@ -47,13 +47,14 @@ export const Coluna = styled.ul`
     display:flex;
     flex-direction: column;
     justify-content: center;
-    
+    align-items:center;
     padding: 0;
 `
 export const Linhas = styled.li`
     display:flex;
-   
+    flex-direction:column;
     justify-content: center;
+    align-items:center;
 
 `
 
@@ -105,4 +106,36 @@ padding:0 1.5em;
 margin: 0 1.5em;
 
 `
+
+export const Tarefacaixa = styled.div`
+   display:flex;
+` 
+export const TopicoTarefa = styled.p`
+    text-transform:uppercase;
+    font-size:22px;
+    color:#fcb045; 
+    font-weight: 700;
+`
+export const FeitoInput = styled.input`
+  margin: 0em 1em;
+`;
+
+export const CustomCheckbox = styled.input.attrs({ type: 'checkbox' })`
+ 
+
+  + label::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    background-color: #fff;
+    transition: all 150ms;
+  }
+
+  &:checked + label::before {
+    border-color: red;
+    background-color: #00f;
+  }
+`;
 

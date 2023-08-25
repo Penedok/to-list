@@ -1,6 +1,8 @@
 import React from 'react';
 import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario,
-   Coluna,Linhas,Btn,CaixaBtn,CaixaInput, ExecutadorLabel} from './styleInputs'
+   Coluna,Linhas,Btn,CaixaBtn,CaixaInput,Tarefacaixa,
+   TopicoTarefa,ExecutadorLabel
+   } from './styleInputs'
 import { useState } from 'react';
 
 export default function Inputs (){
@@ -73,13 +75,16 @@ export default function Inputs (){
                  ):null } {executador && (  
                   <div>
                       <Coluna>
-                      {tarefa.map((tarefa, index) => (
+                        {tarefa.map((tarefa, index) => (
                         <Linhas key={index}>
-                          <input type="checkbox" id={`feito-${index}`}/>
-                          <strong>{tarefa.topic}:</strong> {tarefa.tarefa}
-                          <ExecutadorLabel for={`feito-${index}`} placeholder='Feito'>
-                              Feito
-                          </ExecutadorLabel>
+                          <TopicoTarefa>{tarefa.topic}</TopicoTarefa>
+                          <Tarefacaixa>
+                            <FeitoInput type="checkbox" id={`feito-${index}`}/>
+                            <p> {tarefa.tarefa}</p>
+                            <ExecutadorLabel for={`feito-${index}`} placeholder='Feito'>
+                                Feito
+                            </ExecutadorLabel>
+                          </Tarefacaixa>  
                         </Linhas>
                           ))}
                    </Coluna>
