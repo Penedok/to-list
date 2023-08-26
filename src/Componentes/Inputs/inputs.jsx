@@ -1,7 +1,7 @@
 import React from 'react';
 import {ContainerInput, Selecao, Dados,Cartao,Select,Formulario,
-   Coluna,Linhas,Btn,CaixaBtn,CaixaInput,Tarefacaixa,
-   TopicoTarefa,ExecutadorLabel
+   Coluna,Linhas,Btn,CaixaBtn,CaixaInput, ExecutadorLabel,Tarefacaixa,
+   TopicoTarefa,
    } from './styleInputs'
 import { useState } from 'react';
 
@@ -53,7 +53,7 @@ export default function Inputs (){
                         setExecutador(false)
                       }
                    }}>
-                     <option>Selecione..</option>
+                     <option>Selecione...</option>
                      <option>Organizador</option>
                      <option>Executador</option>
                    </Select>
