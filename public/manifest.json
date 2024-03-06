@@ -1,0 +1,29 @@
+{
+  "short_name": "ListComp",
+  "name": "ListComp",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#a5873a",
+  "background_color": "#a56c1a",
+  "description": "ajuda você a criar uma lista to-list",
+  "id": "toList",
+  "lang": "pt",
+  "categories": ["food", "magazines", "utilities"]
+}
